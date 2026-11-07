@@ -10,10 +10,24 @@
     <title>Aulas Desenvolvimento Web I</title>
 </head>
 <body>
-    <header class="flexcontainer" id="topo">
+ <header class="flexcontainer" id="topo">
         <img id="logo" src="imagem/FATEC_ZONA_LESTE.png" alt="logo fatec zona leste">
+        <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+        </div>
+        </div>
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+        <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+        </script>
     </header>
     <nav class="flexcontainer">
+        <!--Menu responsivo-->
+        <label for="bt_menu"><img src="imagem/menu.png" alt="menu"></label>
+        <input type="checkbox" name="bt_menu" id="bt_menu">
+        <!--Fim Menu responsivo-->
         <ul id="menu">
             <li><a href="index.html">Início</a></li>
             <li><a href="comentarios.html">Comentários</a></li>
@@ -32,28 +46,25 @@
         <h1>Desenvolvimento Web I</h1>
         <section>
             <h2>Cadastro</h2>
-            <form  method="post">
+            <form method="post">
                 <fieldset>
                     <legend>Dados Pessoais</legend>
-                    <label class = "required" for="nome">Nome</label>
-                    <input type="text" name="nome" id="nome" 
-                    placeholder="Nome completo" required>
-                    <label class = "required"  for="cpf">CPF</label>
-                    <input type="text" name="cpf" id="cpf" 
-                    placeholder="999.999.999-99" required>
-                    <label class = "required"  for="data">Data de Nascimento</label>
+                    <label class="required" for="nome">Nome</label>
+                    <input type="text" name="nome" id="nome" placeholder="Nome Completo" required>
+                    <label class="required" for="cpf">CPF</label>
+                    <input type="text" name="cpf" id="cpf" placeholder="999.999.999-99" required>
+                    <label class="required" for="data">Data de Nascimento</label>
                     <input type="date" name="data" id="data" required>
-                    <label class = "required"  for="celular">Celular</label>
-                    <input type="tel" name="celular" id="celular" 
-                    placeholder="(99) 99999-9999" required>
+                    <label class="required" for="celular">Celular</label>
+                    <input type="tel" name="celular" id="celular" placeholder="(99) 99999-9999" required>
                 </fieldset>
                 <fieldset>
                     <legend>Endereço</legend>
-                    <label class = "required" for="cep">CEP</label>
+                    <label class="required" for="cep">CEP</label>
                     <input type="text" name="cep" id="cep" placeholder="99999-999" required>
                     <label for="rua">Rua</label>
                     <input type="text" name="rua" id="rua" disabled>
-                    <label class = "required" for="numero">Número</label>
+                    <label class="required" for="numero">Número</label>
                     <input type="number" name="numero" id="numero" required>
                     <label for="complemento">Complemento</label>
                     <input type="text" name="complemento" id="complemento" placeholder="Bloco, apartamento...">
@@ -66,47 +77,18 @@
                 </fieldset>
                 <fieldset>
                     <legend>Login</legend>
-                    <label class = "required" for="email">E-Mail</label>
-                    <input type="email" name="email" id="email" 
-                    placeholder="fulaninho@site.com.br" required>
-                    <label class = "required" for="senha">Senha</label>
-                    <input type="password" name="senha" id="senha" placeholder="senha" required>
-                    <label class = "required" for="confirma">Confirme a Senha</label>
-                    <input type="password" name="confirma" id="confirma" placeholder="senha" required>
+                    <label class="required" for="email">E-Mail</label>
+                    <input type="email" name="email" id="email" placeholder="nome@site.com.br" required>
+                    <label for="senha" class="required">Senha</label>
+                    <input type="password" name="senha" id="senha" placeholder="A senha deve conter no mínimo 8 caracteres, uma letra maiúscula, número e caractere especial" required>
+                    <label class="required" for="confirma">Confirme a Senha</label>
+                    <input type="password" name="confirma" id="confirma" required>
                 </fieldset>
-                <button type="submit">Cadastrar</button>
-                <button type="reset">Limpar</button>
+                <button type="submit">Cadastrar</button> <button type="reset">Limpar</button>
             </form>
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         </section>
-
-
-
     </main>
-
-
-
-
     <footer class="flexcontainer" id="rodape">
         <p>Desenvolvido por Ariane Rosa | Todos os direitos reservados &copy; 2026</p>
     </footer>
