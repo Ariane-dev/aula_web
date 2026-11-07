@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar senha</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            color: red;
+        }
+        li.valid{
+            color: green;
+        }
+
+    </style>
+</head>
+<body>
+    <form id="formulario">
+        <label for="senha">Senha </label><br>
+        <input type="password" name="senha" id="senha" required 
+        pattern="(?=.*[a-z](?=.*[A=-Z])(?=.*\d)(?=.*[\W_]).{8,})">
+       
+        <ul id="requisitos">
+            <li id="length">Minimo 8 caracteres</li>
+            <li id="uppercase">Ao menos uma letra maiúscula</li>
+            <li id="lowercase">Ao menos uma letra minúscula</li>
+            <li id="number"> Ao menos um número</li>
+            <li id="special">Ao menos um caractere especial</li>
+        </ul>
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+<script>
+    const inputSenha = document.getElementById('senha')
+
+    //Elementos dos requisitos 
+    const reqLength = document.getElementById('length')
+    const reqUppercase = document.getElementById('uppercase')
+    const reqLowercase = document.getElementById('lowercase')
+    const reqNumber = document.getElementById('number')
+    const reqSpecial = document.getElementById('special')
+
+    inputSenha.addEventListener('input',function(){
+        const valor = inputSenha.value
+        ValidarRegra(reqLength, valor.length >=8)
+        ValidarRegra(reqUppercase,/[A-Z]/.test(valor))
+        ValidarRegra(reqLowercase,/[a-z]/.test(valor))
+        ValidarRegra(reqNumber,/\d/.test(valor))
+        ValidarRegra(reqSpecial,/[\W_]/.test(valor))
+    })
+    function ValidarRegra(elemento,condicao){
+        if(condicao){
+            elemento.classList.add('valid')
+        }
+        else{
+            elemento.classList.remove('valid')
+        }
+    }
+</script>
+</html>
